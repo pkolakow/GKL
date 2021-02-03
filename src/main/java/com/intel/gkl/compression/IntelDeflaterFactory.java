@@ -31,7 +31,7 @@ public class IntelDeflaterFactory extends DeflaterFactory {
      */
     public Deflater makeDeflater(final int compressionLevel, final boolean gzipCompatible) {
         if (intelDeflaterSupported) {
-            if ((compressionLevel == 1 && gzipCompatible) || compressionLevel != 1) {
+            if (compressionLevel != 1 || gzipCompatible) {
                 return new IntelDeflater(compressionLevel, gzipCompatible);
             }
         }
